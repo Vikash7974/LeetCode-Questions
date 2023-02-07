@@ -1,24 +1,19 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h>
-using namespace std;
+#include <bits/stdc++.h>
 
+using namespace std;
 
 // } Driver Code Ends
 class Solution{
-    public:
-        
-    // A[]: input array
-    // N: size of array
-    // Function to find the maximum index difference.
-    int maxIndexDiff(int A[], int N) 
-    { 
-        int mx=0;
-        for(int i=N-1;i>0;i--)
+public:
+    int maxIndexDiff(int arr[], int n) {
+       int mx=0;
+        for(int i=n-1;i>0;i--)
         {
             int j=0;
             while(j<i)
             {
-                if(A[i]>=A[j])
+                if(arr[i]>=arr[j])
                 {
                     mx=max(mx,i-j);
                     break;
@@ -28,31 +23,26 @@ class Solution{
         }
         return mx;
     }
+
 };
 
+
 //{ Driver Code Starts.
-  
-/* Driver program to test above functions */
-int main() 
-{
-    int T;
-    //testcases
-    cin>>T;
-    while(T--){
-        int num;
-        //size of array
-        cin>>num;
-        int arr[num];
-        
-        //inserting elements
-        for (int i = 0; i<num; i++)
-            cin>>arr[i];
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, i;
+        cin >> n;
+        int a[n];
+        for (i = 0; i < n; i++) {
+            cin >> a[i];
+        }
         Solution ob;
-        
-        //calling maxIndexDiff() function
-        cout<<ob.maxIndexDiff(arr, num)<<endl;    
-        
+        auto ans = ob.maxIndexDiff(a, n);
+        cout << ans << "\n";
     }
     return 0;
-} 
+}
 // } Driver Code Ends
